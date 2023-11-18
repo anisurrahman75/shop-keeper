@@ -21,7 +21,6 @@ func (s *Server) MountHandlers() http.Handler {
 		r.HandleFunc("/signup", handlers.SignUp)
 		r.HandleFunc("/signin", handlers.SignIn)
 	})
-
 	//s.Router.Group(func(r chi.Router) {
 	s.Router.Group(func(r chi.Router) {
 		//r.Use(auth.Verify)
@@ -29,6 +28,12 @@ func (s *Server) MountHandlers() http.Handler {
 		r.HandleFunc("/signout", handlers.SignOut)
 		r.HandleFunc("/productadd", handlers.ProductAdd)
 		r.HandleFunc("/productlist", handlers.ProductList)
+		r.HandleFunc("/newsales", handlers.NewSales)
+		r.HandleFunc("/invoice", handlers.InvoicePrint)
+
+		r.Route("/customer", func(r chi.Router) {
+			r.HandleFunc("/{shopName}", handlers.GetCustomerInfo)
+		})
 
 	})
 	return s.Router

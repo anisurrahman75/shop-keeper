@@ -105,3 +105,34 @@ var ProductList = []models.Product{
 		Qty: 20,
 	},
 }
+
+var CustomerList = []models.Customer{
+	{
+		ShopName:    "Ma Motors",
+		OwnerName:   "Kamal Hossein",
+		PhoneNumber: "+8801629397575",
+		Address:     "Notun Bazar, Konabari, Gazipur",
+		TotalDue:    12000,
+	},
+	{
+		ShopName:    "Nolota Motors",
+		OwnerName:   "Babul Sheikh",
+		PhoneNumber: "+8801629397575",
+		Address:     "Notun Bazar, Konabari, Gazipur",
+		TotalDue:    1223456,
+	},
+	{
+		ShopName:    "Rana Ratul Motors",
+		OwnerName:   "Ripon Hossain",
+		PhoneNumber: "+8801629397575",
+		Address:     "Notun Bazar, Konabari, Gazipur",
+		TotalDue:    8000,
+	},
+	{
+		ShopName:    "MaShAllah Motors",
+		OwnerName:   "Akram Hossain",
+		PhoneNumber: "+8801629397575",
+		Address:     "Notun Bazar, Konabari, Gazipur",
+		TotalDue:    12000,
+	},
+}

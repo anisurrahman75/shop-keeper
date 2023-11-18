@@ -1,166 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-   <head>
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
-      <meta name="description" content="POS - Bootstrap Admin Template">
-      <meta name="keywords" content="admin, estimates, bootstrap, business, corporate, creative, invoice, html5, responsive, Projects">
-      <meta name="author" content="Dreamguys - Bootstrap Admin Template">
-      <meta name="robots" content="noindex, nofollow">
-      <title>Dreams Pos admin template</title>
-      <link rel="shortcut icon" type="image/x-icon" href="../assets/img/favicon.png">
-      <link rel="stylesheet" href="../assets/css/bootstrap.min.css">
-      <link rel="stylesheet" href="../assets/plugins/select2/css/select2.min.css">
-      <link rel="stylesheet" href="../assets/css/animate.css">
-      <link rel="stylesheet" href="../assets/css/dataTables.bootstrap4.min.css">
-      <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css">
-      <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
-      <link rel="stylesheet" href="../assets/css/style.css">
-   </head>
-   <body>
-      <div class="main-wrapper">
-         <div class="header">
-            <div class="header-left active">
-               <a class="logo">
-               <img src="../assets/img/logo.png" alt="">
-               </a>
-               <a  class="logo-small">
-               <img src="../assets/img/logo-small.png" alt="">
-               </a>
-               <a id="toggle_btn" href="javascript:void(0);">
-               </a>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/invoice-style.css" type="text/css" media="all" />
+</head>
+
+<body>
+<div>
+    <div class="py-4">
+        <div class="px-14 py-6">
+            <table class="w-full border-collapse border-spacing-0">
+                <tbody>
+                <tr>
+                    <td class="w-full align-top">
+                        <div>
+                            <img src="https://menkoff.com/assets/brand-sample.png" class="h-12" />
+                        </div>
+                    </td>
+
+                    <td class="align-top">
+                        <div class="text-sm">
+                            <table class="border-collapse border-spacing-0">
+                                <tbody>
+                                <tr>
+                                    <td class="border-r pr-4">
+                                        <div>
+                                            <p class="text-neutral-600 font-bold text-right">Date</p>
+                                            <p class="whitespace-nowrap font-bold text-main text-right">April 26, 2023</p>
+                                        </div>
+                                    </td>
+                                    <td class="pl-4">
+                                        <div>
+                                            <p class="text-neutral-600 font-bold text-right">Invoice #</p>
+                                            <p class="whitespace-nowrap font-bold text-main text-right">BRA-00335</p>
+                                        </div>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="bg-slate-100 px-14 py-6 text-sm">
+            <table class="w-full border-collapse border-spacing-0">
+                <tbody>
+                <tr>
+                    <td class="w-1/2 align-top">
+                        <div class="text-sm text-neutral-600">
+                            <p class="font-bold">Sayem Enterprise Limited</p>
+                            <p>Number: +88 01924715435</p>
+                            <p>VAT: 23456789</p>
+                            <p>Notun Bazar, Konabari</p>
+                            <p>Gazipur, Dhaka, Bangladesh</p>
+                        </div>
+                    </td>
+                    <td class="w-1/2 align-top text-right">
+                        <div class="text-sm text-neutral-600">
+                            <p class="font-bold">{{.CustomerInfo.ShopName}}</p>
+                            <p>Owner: {{.CustomerInfo.OwnerName}}</p>
+                            <p>Number: {{.CustomerInfo.PhoneNumber}}</p>
+                            <p>Address: {{.CustomerInfo.Address}}</p>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="px-14 py-10 text-sm text-neutral-700">
+            <table class="w-full border-collapse border-spacing-0">
+                <thead>
+                <tr>
+                    <td class="border-b-2 border-main pb-3 pl-3 font-bold text-main">#</td>
+                    <td class="border-b-2 border-main pb-3 pl-2 font-bold text-main">Product details</td>
+                    <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Price</td>
+                    <!-- <td class="border-b-2 border-main pb-3 pl-2 text-center font-bold text-main">Qty.</td> -->
+                    <td class="border-b-2 border-main pb-3 pl-2 text-right font-bold text-main">Qty</td>
+                    <td class="border-b-2 border-main pb-3 pl-2 pr-3 text-right font-bold text-main">Subtotal + VAT</td>
+                </tr>
+                </thead>
+                <tbody>
+                {{range .ProductsList}}
+
+                <tr>
+                    <td class="border-b py-3 pl-3">1.</td>
+                    <td class="border-b py-3 pl-2">{{.Name}}</td>
+                    <td class="border-b py-3 pl-2 text-right">$ {{.UnitPrice}}</td>
+                    <!-- <td class="border-b py-3 pl-2 text-center">1</td> -->
+                    <td class="border-b py-3 pl-2 text-right">{{.Qty}}</td>
+                    <td class="border-b py-3 pl-2 pr-3 text-right">{{.SubTotal}}</td>
+                </tr>
+
+                {{end}}
+<!--                <tr>-->
+<!--                    <td class="border-b py-3 pl-3">2.</td>-->
+<!--                    <td class="border-b py-3 pl-2">Taxation consulting (hour)</td>-->
+<!--                    <td class="border-b py-3 pl-2 text-right">$60.00</td>-->
+<!--                    &lt;!&ndash; <td class="border-b py-3 pl-2 text-center">2</td> &ndash;&gt;-->
+<!--                    <td class="border-b py-3 pl-2 text-right">$120.00</td>-->
+<!--                    <td class="border-b py-3 pl-2 pr-3 text-right">$144.00</td>-->
+<!--                </tr>-->
+<!--                <tr>-->
+<!--                    <td class="border-b py-3 pl-3">3.</td>-->
+<!--                    <td class="border-b py-3 pl-2">Bookkeeping services</td>-->
+<!--                    <td class="border-b py-3 pl-2 text-right">$50.00</td>-->
+<!--                    &lt;!&ndash; <td class="border-b py-3 pl-2 text-center">1</td> &ndash;&gt;-->
+<!--                    <td class="border-b py-3 pl-2 text-right">$50.00</td>-->
+<!--                    <td class="border-b py-3 pl-2 pr-3 text-right">$60.00</td>-->
+<!--                </tr>-->
+
+
+                <tr>
+                    <td colspan="7">
+                        <table class="w-full border-collapse border-spacing-0">
+                            <tbody>
+                            <tr>
+                                <td class="w-full"></td>
+                                <td>
+                                    <table class="w-full border-collapse border-spacing-0">
+                                        <tbody>
+                                        <tr>
+                                            <td class="border-b p-3">
+                                                <div class="text-neutral-600  font-bold ">Net total:</div>
+                                            </td>
+                                            <td class="border-b p-3 text-right">
+                                                <div class="whitespace-nowrap font-bold text-main">$320.00</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="p-3">
+                                                <div class="whitespace-nowrap font-bold">Discount:</div>
+                                            </td>
+                                            <td class="p-3 text-right">
+                                                <div class="whitespace-nowrap font-bold text-main">$64.00</div>
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <td class="bg-main p-3">
+                                                <div class="whitespace-nowrap font-bold text-white">Total:</div>
+                                            </td>
+                                            <td class="bg-main p-3 text-right">
+                                                <div class="whitespace-nowrap font-bold text-white">$384.00</div>
+                                            </td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div class="px-14 text-sm text-neutral-700">
+            <p class="text-main font-bold">PAYMENT DETAILS</p>
+            <p>Banks of Banks</p>
+            <p>Bank/Sort Code: 1234567</p>
+            <p>Account Number: 123456678</p>
+            <p>Payment Reference: BRA-00335</p>
+        </div>
+
+        <div class="px-14 py-10 text-sm text-neutral-700">
+            <p class="text-main font-bold">Notes</p>
+            <p class="italic">Lorem ipsum is placeholder text commonly used in the graphic, print, and publishing industries
+                for previewing layouts and visual mockups.</p>
             </div>
-            <a id="mobile_btn" class="mobile_btn" href="#sidebar">
-            <span class="bar-icon">
-            <span></span>
-            <span></span>
-            <span></span>
-            </span>
-            </a>
-            <ul class="nav user-menu">
-               <li class="nav-item dropdown has-arrow main-drop">
-                  <a href="javascript:void(0);" class="dropdown-toggle nav-link userset" data-bs-toggle="dropdown">
-                  <span class="user-img"><img src="../assets/img/profiles/avator1.jpg" alt="">
-                  <span class="status online"></span></span>
-                  </a>
-                  <div class="dropdown-menu menu-drop-user">
-                     <div class="profilename">
-                        <div class="profileset">
-                           <span class="user-img"><img src="../assets/img/profiles/avator1.jpg" alt="">
-                           <span class="status online"></span></span>
-                           <div class="profilesets">
-                              <h6>John Doe</h6>
-                              <h5>Admin</h5>
-                           </div>
-                        </div>
-                        <hr class="m-0">
-                        <a class="dropdown-item" > <i class="me-2" data-feather="user"></i> My Profile</a>
-                        <a class="dropdown-item" ><i class="me-2" data-feather="settings"></i>Settings</a>
-                        <hr class="m-0">
-                        <a class="dropdown-item logout pb-0" id="click_logout"><img src="../assets/img/icons/log-out.svg" class="me-2" alt="img">Logout</a>
-                     </div>
-                  </div>
-               </li>
-            </ul>
-         </div>
-         <div class="sidebar" id="sidebar">
-            <div class="sidebar-inner slimscroll">
-               <div id="sidebar-menu" class="sidebar-menu">
-                  <ul>
-                     <li>
-                        <a href="dashboard"><img src="../assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
-                     </li>
-                     <li class="submenu">
-                        <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                           <li><a href="productlist">Product List</a></li>
-                           <li><a href="productadd" class="active">Add Product</a></li>
-                        </ul>
-                     </li>
-                     <li class="submenu">
-                        <a href="javascript:void(0);"><img src="../assets/img/icons/sales1.svg" alt="img"><span> Sales</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                        </ul>
-                     </li>
-                     <li class="submenu">
-                        <a href="javascript:void(0);"><img src="../assets/img/icons/purchase1.svg" alt="img"><span> Purchase</span> <span class="menu-arrow"></span></a>
-                        <ul>
-                        </ul>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-         <div class="page-wrapper">
-            <div class="content">
-               <div class="page-header">
-                  <div class="page-title">
-                     <h4>Import Products</h4>
-                     <h6>Bulk upload your products</h6>
-                  </div>
-               </div>
-               <div class="card">
-                  <div class="card-body">
-                     <div class="row">
-                        <div class="col-lg-6 col-sm-10 col-10">
-                           <select class="form-control select2">
-                              <option>Select Customer</option>
-                              <option>Customer</option>
-                              <option>Car</option>
-                              <option>Bike</option>
-                              <option>Scooter</option>
-                              <option>Cycle</option>
-                              <option>Horse</option>
-                           </select>
-                        </div>
-                        <div class="col-lg-2 col-sm-2 col-2 ps-2">
-                           <div class="add-icon">
-                              <a href="javascript:void(0);"><img src="../assets/img/icons/plus1.svg" alt="img"></a>
-                           </div>
-                        </div>
-                        <div class="col-lg-5 col-sm-10 col-10 mt-3">
-                           <div class="productdetails productdetailnew">
-                              <ul class="product-bar">
-                                 <li>
-                                    <h4>Product Name</h4>
-                                    <h6 class="manitorygreen">This Field is required</h6>
-                                 </li>
-                                 <li>
-                                    <h4>Category</h4>
-                                    <h6 class="manitorygreen">This Field is required</h6>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                        <div class="col-lg-5 col-sm-10 col-2 mt-3">
-                           <div class="productdetails productdetailnew">
-                              <ul class="product-bar">
-                                 <li>
-                                    <h4>Product Name</h4>
-                                    <h6 class="manitorygreen">This Field is required</h6>
-                                 </li>
-                                 <li>
-                                    <h4>Category</h4>
-                                    <h6 class="manitorygreen">This Field is required</h6>
-                                 </li>
-                              </ul>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row p-lg-2"></div>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-      <script src="../assets/js/jquery-3.6.0.min.js"></script>
-      <script src="../assets/js/feather.min.js"></script>
-      <script src="../assets/js/jquery.slimscroll.min.js"></script>
-      <script src="../assets/plugins/select2/js/select2.min.js"></script>
-      <script src="../assets/plugins/select2/js/custom-select.js"></script>
-      <script src="../assets/js/jquery.dataTables.min.js"></script>
-      <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
-      <script src="../assets/js/bootstrap.bundle.min.js"></script>
-      <script src="../assets/js/script.js"></script>
-   </body>
+
+            <footer class="fixed bottom-0 left-0 bg-slate-100 w-full text-neutral-600 text-center text-xs py-3">
+                Supplier Company
+                <span class="text-slate-300 px-2">|</span>
+                info@company.com
+                <span class="text-slate-300 px-2">|</span>
+                +1-202-555-0106
+            </footer>
+        </div>
+    </div>
+</body>
+
 </html>

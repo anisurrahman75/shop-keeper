@@ -11,3 +11,7 @@ type Product struct {
 type Unit struct {
 	Name string `json:"name"`
 }
+
+type Brand struct {
+	Name string `json:"name"`
+}
