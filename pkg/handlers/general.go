@@ -12,7 +12,7 @@ import (
 func Dashboard(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
 
-	temp, err := template.ParseFiles("./api/templates/views/dashboard.html")
+	temp, err := template.ParseFiles("./templates/views/dashboard.html")
 	if err != nil {
 		panic(err)
 	}
@@ -24,7 +24,7 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 
 func InvoicePrint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Method: ", r.Method)
-	tem, err := template.ParseFiles("./api/templates/views/invoice.html")
+	tem, err := template.ParseFiles("./templates/views/invoice.html")
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, "Error parsing template", http.StatusInternalServerError)

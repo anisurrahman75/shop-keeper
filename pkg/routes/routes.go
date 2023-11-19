@@ -1,7 +1,7 @@
 package routes
 
 import (
-	"github.com/anisurrahman75/go-stock-management/api/handlers"
+	"github.com/anisurrahman75/go-stock-management/pkg/handlers"
 	"github.com/go-chi/chi/v5"
 	"net/http"
 )
@@ -26,13 +26,21 @@ func (s *Server) MountHandlers() http.Handler {
 		//r.Use(auth.Verify)
 		r.HandleFunc("/dashboard", handlers.Dashboard)
 		r.HandleFunc("/signout", handlers.SignOut)
-		r.HandleFunc("/productadd", handlers.ProductAdd)
-		r.HandleFunc("/productlist", handlers.ProductList)
-		r.HandleFunc("/newsales", handlers.NewSales)
-		r.HandleFunc("/invoice", handlers.InvoicePrint)
+
+		r.Route("/product", func(r chi.Router) {
+			r.HandleFunc("/add", handlers.ProductAdd)
+			r.HandleFunc("/list", handlers.ProductList)
+
+		})
 
 		r.Route("/customer", func(r chi.Router) {
-			r.HandleFunc("/{shopName}", handlers.GetCustomerInfo)
+			r.HandleFunc("/add", handlers.AddCustomer)
+			r.HandleFunc("/{shopName}", handlers.GetCustomer)
+		})
+
+		r.Route("/sales", func(r chi.Router) {
+			r.HandleFunc("/new", handlers.NewSales)
+			r.HandleFunc("/invoice", handlers.InvoicePrint)
 		})
 
 	})

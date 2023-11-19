@@ -3,9 +3,9 @@ package handlers
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/anisurrahman75/go-stock-management/api/auth"
 	"github.com/anisurrahman75/go-stock-management/api/data"
 	"github.com/anisurrahman75/go-stock-management/api/models"
+	"github.com/anisurrahman75/go-stock-management/pkg/auth"
 	"html/template"
 	"net/http"
 )

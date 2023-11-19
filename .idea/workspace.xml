@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d46ad83d-1c9b-4edf-845b-6a175c9700a2" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/data/data.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/data/data.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/handlers/general.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/handlers/general.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/user.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/routes/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/views/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/views/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/views/invoice.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/views/invoice.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/views/productadd.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/views/productadd.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/templates/views/productlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/api/templates/views/productlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/newsales.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/newsales.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,10 +17,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="Go File" />
         <option value="CSS File" />
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -60,10 +53,10 @@
     "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
     "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
     "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
+    "git-widget-placeholder": "refactor-files",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/anisur/go/src/github.com/anisurrahman75/front-end/Invoice/email-templates/templid-dynamic-templates/invoice-02",
+    "last_opened_file_path": "/home/anisur/go/src/github.com/anisurrahman75/bookserver-api-mysql",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)"
@@ -72,6 +65,13 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/assets" />
+      <recent name="$PROJECT_DIR$/templates" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/pkg" />
+      <recent name="$PROJECT_DIR$/api" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

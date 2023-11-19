@@ -11,7 +11,7 @@ import (
 
 func NewSales(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.Method)
-	temp, err := template.ParseFiles("./api/templates/views/newsales.html")
+	temp, err := template.ParseFiles("./templates/views/newsales.html")
 	if err != nil {
 		panic(err)
 	}

@@ -38,6 +38,7 @@
                 </span>
             </a>
     
+    
             <ul class="nav user-menu">
                 <li class="nav-item dropdown has-arrow main-drop">
 
@@ -46,6 +47,7 @@
                       <span class="user-img"><img src="../assets/img/profiles/avator1.jpg" alt="">
                       <span class="status online"></span></span>
                     </a>
+
 
                     <div class="dropdown-menu menu-drop-user">
                         <div class="profilename">
@@ -69,14 +71,18 @@
             </ul>
         </div>
 
+
+
          <div class="sidebar" id="sidebar">
             <div class="sidebar-inner slimscroll">
                <div id="sidebar-menu" class="sidebar-menu">
                   <ul>
 
+
                      <li>
                         <a href="dashboard"><img src="../assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
                      </li>
+
 
                      <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
@@ -86,12 +92,11 @@
                         </ul>
                      </li>
 
-
                      <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span> People</span> <span class="menu-arrow"></span></a>
                         <ul>
                             <li><a href="customerlist.html">Customer List</a></li>
-                            <li><a href="addcustomer.html" >Add Customer </a></li>
+                            <li><a href="addcustomer.html" class="active">Add Customer </a></li>
                 
                         </ul>
                     </li>
@@ -110,8 +115,6 @@
                         </ul>
                     </li>
 
-
-
                   </ul>
                </div>
             </div>
@@ -122,65 +125,52 @@
             <div class="content">
                <div class="page-header">
                   <div class="page-title">
-                     <h4>Product Add</h4>
-                     <h6>Create new product</h6>
+                     <h4>Customer Add</h4>
+                     <h6>Create new customer</h6>
                   </div>
                </div>
 
                <div class="card">
                   <div class="card-body">
                      <div class="row">
-                        <div class="col-lg-3 col-sm-6 col-12">
-                           <div class="form-group">
-                              <label>Brand</label>
-                              <select class="select" id="brand">
-                                 <option>Choose Brand</option>
-                                  {{range .BrandList}}
-                                  <option>
-                                      {{.Name}}
-                                 </option>
-                                  {{end}}
-                              </select>
-                           </div>
-                        </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                           <div class="form-group" id="product_name">
-                              <label>Product Name</label>
+                        <div class="col-lg-4 col-sm-6 col-12">
+                           <div class="form-group" id="shopName">
+                              <label>Shop Name</label>
                               <input type="text">
                            </div>
                         </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                           <div class="form-group" id="product_grade">
-                              <label>Product Grade</label>
+                        <div class="col-lg-4 col-sm-6 col-12">
+                           <div class="form-group" id="ownerName">
+                              <label>Owner Name</label>
+                              <input type="text">
+                           </div>
+                        </div>
+                        <div class="col-lg-4 col-sm-6 col-12">
+                           <div class="form-group" id="phoneNumber">
+                              <label>Phone Number</label>
                               <input type="text">
                            </div>
                         </div>
                
                         
-                        <div class="col-lg-3 col-sm-6 col-12">
-                           <div class="form-group">
-                              <label>Unit</label>
-                              <select class="select" id="unit">
-                                 <option>Choose Unit</option>
-                                  {{range .UnitList}}
-                                  <option>
-                                      {{.Name}}
-                                  </option>
-                                  {{end}}
-                              </select>
-                           </div>
-                        </div>
-                       
-                     
-                        <div class="col-lg-12">
-                           <div class="form-group" id="description">
-                              <label>Description</label>
-                              <textarea class="form-control"></textarea>
+                        <div class="col-lg-8 col-sm-6 col-12">
+                           <div class="form-group" id="address">
+                              <label>Address</label>
+                              <input type="text">
                            </div>
                         </div>
 
+                        <div class="col-lg-4 col-sm-6 col-12">
+                            <div class="form-group" id="totalDue">
+                               <label>Total DUE (Tk)</label>
+                               <input type="text">
+                            </div>
+                         </div>
+                       
+                    
+
                         <div class="col-lg-12">
-                           <a href="javascript:void(0);" class="btn btn-submit me-2" id="submit">Submit</a>
+                           <a href="javascript:void(0);" class="btn btn-submit me-2" id="submit" >Submit</a>
                            <a href="productlist.html" class="btn btn-cancel">Cancel</a>
                         </div>
                      </div>
@@ -199,7 +189,7 @@
       <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
       <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
       <script src="../assets/js/script.js"></script>
-      <script src="../assets/views-js/product-add.js"></script>
+      <script src="../assets/views-js/customeradd.js"></script>
    </body>
 
 

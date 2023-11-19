@@ -28,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
             const quantityCell = row.insertCell(3);
             const totalCell = row.insertCell(4);
 
-            deleteCell.innerHTML = '<a class="delete-set"><img src="../assets/img/icons/delete.svg" alt="svg"></a>';
+            deleteCell.innerHTML = '<a class="delete-set"><img src="../img/icons/delete.svg" alt="svg"></a>';
             productNameCell.innerHTML = '<a href="javascript:void(0);">' + product.name + '</a>';
             priceCell.innerText = product.unitPrice;
             quantityCell.innerText = product.qty;
