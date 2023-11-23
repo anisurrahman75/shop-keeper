@@ -136,3 +136,58 @@ var CustomerList = []models.Customer{
 		TotalDue:    12000,
 	},
 }
+
+var SalesList = []models.InvoiceData{
+	{
+		ShopName:  CustomerList[0].ShopName,
+		OwnerName: CustomerList[0].OwnerName,
+		Date:      "02-13-2023",
+		InvoiceNo: "12",
+		ProductsInfo: []models.SaleProductInfo{
+			{},
+		},
+		NetTotal:          1200.00,
+		DiscountInPercent: 12,
+		SaveInDiscount:    123.00,
+		GrandTotal:        1177.00,
+	},
+	{
+		ShopName:  CustomerList[0].ShopName,
+		OwnerName: CustomerList[0].OwnerName,
+		Date:      "02-13-2023",
+		InvoiceNo: "12",
+		ProductsInfo: []models.SaleProductInfo{
+			{},
+		},
+		NetTotal:          1200.00,
+		DiscountInPercent: 13,
+		SaveInDiscount:    123.00,
+		GrandTotal:        1177.00,
+	},
+	{
+		ShopName:  CustomerList[0].ShopName,
+		OwnerName: CustomerList[0].OwnerName,
+		Date:      "02-13-2023",
+		InvoiceNo: "13",
+		ProductsInfo: []models.SaleProductInfo{
+			{},
+		},
+		NetTotal:          1200.00,
+		DiscountInPercent: 12,
+		SaveInDiscount:    123.00,
+		GrandTotal:        1177.00,
+	},
+	{
+		ShopName:  CustomerList[0].ShopName,
+		OwnerName: CustomerList[0].OwnerName,
+		Date:      "02-13-2023",
+		InvoiceNo: "14",
+		ProductsInfo: []models.SaleProductInfo{
+			{},
+		},
+		NetTotal:          1200.00,
+		DiscountInPercent: 12,
+		SaveInDiscount:    123.00,
+		GrandTotal:        1177.00,
+	},
+}

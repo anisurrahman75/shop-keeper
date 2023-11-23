@@ -35,6 +35,7 @@ func (s *Server) MountHandlers() http.Handler {
 
 		r.Route("/customer", func(r chi.Router) {
 			r.HandleFunc("/add", handlers.AddCustomer)
+			r.HandleFunc("/list", handlers.ListCustomer)
 			r.HandleFunc("/{shopName}", handlers.GetCustomer)
 		})
 
@@ -45,4 +46,12 @@ func (s *Server) MountHandlers() http.Handler {
 
 	})
 	return s.Router
+}
+
+func (s *Server) LoadAllStaticFiles() {
+	frameworkFiles := http.FileServer(http.Dir("./templates/assets"))
+	s.Router.Handle("/assets/*", http.StripPrefix("/assets/", frameworkFiles))
+
+	myJsFiles := http.FileServer(http.Dir("./templates/views-js"))
+	s.Router.Handle("/views-js/*", http.StripPrefix("/views-js/", myJsFiles))
 }

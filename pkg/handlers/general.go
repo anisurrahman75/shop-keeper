@@ -24,44 +24,39 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 
 func InvoicePrint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Method: ", r.Method)
+	fmt.Println("---------Pass---------------")
 	tem, err := template.ParseFiles("./templates/views/invoice.html")
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, "Error parsing template", http.StatusInternalServerError)
 		return
 	}
-	type products struct {
-		Name      string `json:"name"`
-		UnitPrice string `json:"unitPrice"`
-		Qty       string `json:"qty"`
-		SubTotal  int    `json:"subTotal"`
-	}
 
-	type InvoiceData struct {
-		ShopName     string     `json:"ShopName"`
-		OwnerName    string     `json:"OwnerName"`
-		ProductsInfo []products `json:"ProductsInfo"`
-	}
 	// Parse JSON
-	var invoiceData InvoiceData
+	var invoiceData models.InvoiceData
 	err = json.NewDecoder(r.Body).Decode(&invoiceData)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, fmt.Sprintf("Error decoding JSON: %v", err), http.StatusBadRequest)
 		return
 	}
-	fmt.Println(invoiceData.ShopName, " ", invoiceData.OwnerName)
+	fmt.Println(invoiceData.NetTotal)
+	fmt.Println(invoiceData.DiscountInPercent)
+	fmt.Println(invoiceData.SaveInDiscount)
+	fmt.Println(invoiceData.GrandTotal)
 	customerInfo, err := getCustomerInfo(invoiceData.ShopName, invoiceData.OwnerName)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, "Error on executing template", http.StatusBadRequest)
 	}
+	for i := range invoiceData.ProductsInfo {
+		invoiceData.ProductsInfo[i].Index = i + 1
+	}
 
 	response := struct {
 		CustomerInfo *models.Customer
-		ProductsList []products
-		NetTotal     int64
-	}{CustomerInfo: customerInfo, ProductsList: invoiceData.ProductsInfo, NetTotal: 100}
+		InvoiceData  models.InvoiceData
+	}{CustomerInfo: customerInfo, InvoiceData: invoiceData}
 
 	//Execute the template without passing any data.
 	err = tem.Execute(w, response)

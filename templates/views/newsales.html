@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="../assets/plugins/fontawesome/css/fontawesome.min.css">
     <link rel="stylesheet" href="../assets/plugins/fontawesome/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="../assets/css/bootstrap-datetimepicker.min.css">
 </head>
 <body>
 <div class="main-wrapper">
@@ -109,8 +110,65 @@
             </div>
             <div class="card">
                 <div class="card-body">
+
                     <div class="row">
-                        <div class="col-lg-6 col-sm-10 col-10">
+                        <div class="col-lg-6 col-sm-6 col-12">
+                           <div class="form-group">
+                              <label>Supplier Name</label>
+                              <div class="row">
+                                 <div class="col-lg-10 col-sm-10 col-10">
+                                    <select class="form-control select2" id="shopName">
+                                        <option>Select Shop Name</option>
+                                        {{range .CustomerList}}
+                                        <option>{{.ShopName}}</option>
+                                        {{end}}
+                                    </select>
+                                 </div>
+                                 <div class="col-lg-2 col-sm-2 col-2 ps-0">
+                                    <div class="add-icon">
+                                       <a href="javascript:void(0);"><img src="../assets/img/icons/plus1.svg" alt="img" id="showCustomerInfo"></a>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+
+                        <div class="col-lg-3 col-sm-6 col-12">
+                           <div class="form-group">
+                              <label>Purchase Date </label>
+                              <div class="input-groupicon">
+                                 <input type="text" placeholder="DD-MM-YYYY" class="datetimepicker" id="date">
+                                 <div class="addonset">
+                                    <img src="../assets/img/icons/calendars.svg" alt="img">
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                        <div class="col-lg-3 col-sm-6 col-12">
+                           <div class="form-group">
+                              <label>Invoice No.</label>
+                              <input type="text" class="form-control" disabled="disabled" value= {{.InvoiceNo}}  id="invoiceNo">
+                            </div>
+                        </div>
+                     </div>
+
+
+
+
+
+                    <div class="row">
+
+                        
+
+
+
+
+
+
+
+
+
+                        <!-- <div class="col-lg-6 col-sm-12 col-12">
                             <select class="form-control select2" id="shopName">
                                 <option>Select Shop Name</option>
                                 {{range .CustomerList}}
@@ -118,11 +176,33 @@
                                 {{end}}
                             </select>
                         </div>
-                        <div class="col-lg-2 col-sm-2 col-2 ps-2">
+                        <div class="col-lg-2 col-sm-2 col-2">
                             <div class="add-icon">
                                 <a href="javascript:void(0);" id="showCustomerInfo"><img src="../assets/img/icons/plus1.svg" alt="img"></a>
                             </div>
                         </div>
+ 
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <label>Purchase Date </label>
+                                <div class="input-groupicon">
+                                    <input type="text" placeholder="DD-MM-YYYY" class="datetimepicker">
+                                    <div class="addonset">
+                                        <img src="../assets/img/icons/calendars.svg" alt="img">
+                                    </div>
+                                </div>
+                            </div>
+                        </div> 
+                        <div class="col-lg-3 col-sm-6 col-12">
+                            <div class="form-group">
+                                <div class="col-lg2">
+                                    <input type="text" class="form-control" disabled="disabled">
+                                    </div>
+                            </div>
+                        </div>  -->
+
+
+
                         <div class="row pt-3">
                             <div class="col-lg-7 ">
                                 <div class="total-order w-100 max-widthauto m-auto mb-4">
@@ -238,25 +318,24 @@
                                     <ul>
                                         <li class="total">
                                             <h4>Net Total</h4>
-                                            <h5 id="grandTotal">$ </h5>
+                                            <h5 id="netTotal">Tk </h5>
                                         </li>
                                     </ul>
                                     <ul>
                                         <li class="total">
                                             <h4>Discount</h4>
                                             <div class="input-group">
-                                                <input type="text" class="form-control" placeholder="0">
-                                                <div class="input-group-append">
+                                                <input type="text" class="form-control" placeholder="0" id="discount" oninput="updateTable()">                                                <div class="input-group-append">
                                                     <span class="input-group-text">%</span>
                                                 </div>
                                             </div>
-                                            <h5>$ 5000</h5>
+                                            <h5 id="saveMoney">Tk </h5>
                                         </li>
                                     </ul>
                                     <ul>
-                                        <li class="total">
+                                        <li class="grandTotal">
                                             <h4> Grand Total</h4>
-                                            <h5>$ 345645645 </h5>
+                                            <h5 id="grandTotal">Tk </h5>
                                         </li>
                                     </ul>
                                 </div>
@@ -284,6 +363,21 @@
 <script src="../assets/js/dataTables.bootstrap4.min.js"></script>
 <script src="../assets/js/bootstrap.bundle.min.js"></script>
 <script src="../assets/js/script.js"></script>
-<script src="../assets/views-js/new-sales.js"></script>
+<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../views-js/new-sales.js"></script>
+
+<script src="../assets/js/jquery-3.6.0.min.js"></script>
+<script src="../assets/js/feather.min.js"></script>
+<script src="../assets/js/jquery.slimscroll.min.js"></script>
+<script src="../assets/js/jquery.dataTables.min.js"></script>
+<script src="../assets/js/dataTables.bootstrap4.min.js"></script>
+<script src="../assets/js/bootstrap.bundle.min.js"></script>
+<script src="../assets/plugins/select2/js/select2.min.js"></script>
+<script src="../assets/js/moment.min.js"></script>
+<script src="../assets/js/bootstrap-datetimepicker.min.js"></script>
+<script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
+<script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
+
+<script src="../assets/js/script.js"></script>
 </body>
 </html>

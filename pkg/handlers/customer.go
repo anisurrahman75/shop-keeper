@@ -70,6 +70,45 @@ func AddCustomer(w http.ResponseWriter, r *http.Request) {
 
 }
 
+func ListCustomer(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.Method)
+	temp, err := template.ParseFiles("./templates/views/customeradd.html")
+	if err != nil {
+		panic(err)
+	}
+	if r.Method == http.MethodGet {
+		err = temp.Execute(w, nil)
+		if err != nil {
+			http.Error(w, "Error on executing template", http.StatusBadRequest)
+		}
+
+	} else if r.Method == http.MethodPost {
+
+		var cusomerData models.Customer
+		err := json.NewDecoder(r.Body).Decode(&cusomerData)
+		if err != nil {
+			http.Error(w, "Error parsing JSON", http.StatusBadRequest)
+			return
+		}
+		response := struct {
+			IsCustomerAddSuccessful bool `json:"isCustomerAddSuccessful"`
+		}{false}
+		yes := addIntoCustomerList(cusomerData)
+		if yes {
+			response.IsCustomerAddSuccessful = true
+		}
+
+		w.WriteHeader(http.StatusOK)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		err = json.NewEncoder(w).Encode(response)
+		if err != nil {
+			panic(err)
+		}
+	}
+
+}
+
 func addIntoCustomerList(customer models.Customer) bool {
 	data.CustomerList = append(data.CustomerList, customer)
 	return true

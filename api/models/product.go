@@ -8,6 +8,7 @@ type Product struct {
 	Description string `json:"description"`
 	Qty         int    `json:"qty"`
 }
+
 type Unit struct {
 	Name string `json:"name"`
 }

@@ -17,9 +17,10 @@ func NewSales(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == http.MethodGet {
 		response := struct {
+			InvoiceNo    string
 			CustomerList []models.Customer
 			ProductList  []models.Product
-		}{data.CustomerList, data.ProductList}
+		}{"12", data.CustomerList, data.ProductList}
 
 		err = temp.Execute(w, response)
 		if err != nil {
