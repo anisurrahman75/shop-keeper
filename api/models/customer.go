@@ -1,9 +1,18 @@
 package models
 
 type Customer struct {
-	ShopName    string `json:"shop_name"`
-	OwnerName   string `json:"owner_name"`
-	PhoneNumber string `json:"phone_number"`
-	Address     string `json:"address"`
-	TotalDue    int    `json:"total_due"`
+	ID          int    `json:"ID"`
+	ShopName    string `json:"ShopName"`
+	OwnerName   string `json:"OwnerName"`
+	PhoneNumber string `json:"PhoneNumber"`
+	Address     string `json:"Address"`
+	TotalDue    int    `json:"TotalDue"`
+}
+
+type CustomerRecord struct {
+	CustomerID int           `json:"CustomerID"`
+	Purchased  []InvoiceData `json:"Purchased"`
+	Payment    []Payment     `json:"Payment"`
+}
+type Payment struct {
 }

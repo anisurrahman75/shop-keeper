@@ -24,7 +24,6 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 
 func InvoicePrint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Method: ", r.Method)
-	fmt.Println("---------Pass---------------")
 	tem, err := template.ParseFiles("./templates/views/invoice.html")
 	if err != nil {
 		fmt.Println(err)
@@ -40,11 +39,15 @@ func InvoicePrint(w http.ResponseWriter, r *http.Request) {
 		http.Error(w, fmt.Sprintf("Error decoding JSON: %v", err), http.StatusBadRequest)
 		return
 	}
+
+	fmt.Println("-----------------Debugging----------------")
+	fmt.Println(invoiceData.CustomerInfo)
 	fmt.Println(invoiceData.NetTotal)
 	fmt.Println(invoiceData.DiscountInPercent)
 	fmt.Println(invoiceData.SaveInDiscount)
 	fmt.Println(invoiceData.GrandTotal)
-	customerInfo, err := getCustomerInfo(invoiceData.ShopName, invoiceData.OwnerName)
+	fmt.Println("-----------------End Debugging-------------")
+
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, "Error on executing template", http.StatusBadRequest)
@@ -52,14 +55,8 @@ func InvoicePrint(w http.ResponseWriter, r *http.Request) {
 	for i := range invoiceData.ProductsInfo {
 		invoiceData.ProductsInfo[i].Index = i + 1
 	}
-
-	response := struct {
-		CustomerInfo *models.Customer
-		InvoiceData  models.InvoiceData
-	}{CustomerInfo: customerInfo, InvoiceData: invoiceData}
-
 	//Execute the template without passing any data.
-	err = tem.Execute(w, response)
+	err = tem.Execute(w, invoiceData)
 	if err != nil {
 		fmt.Println(err)
 		http.Error(w, "Error on executing template", http.StatusBadRequest)

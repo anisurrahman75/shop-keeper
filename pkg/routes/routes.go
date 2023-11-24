@@ -37,6 +37,7 @@ func (s *Server) MountHandlers() http.Handler {
 			r.HandleFunc("/add", handlers.AddCustomer)
 			r.HandleFunc("/list", handlers.ListCustomer)
 			r.HandleFunc("/{shopName}", handlers.GetCustomer)
+
 		})
 
 		r.Route("/sales", func(r chi.Router) {

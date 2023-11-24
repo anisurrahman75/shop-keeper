@@ -9,8 +9,7 @@ type SaleProductInfo struct {
 }
 
 type InvoiceData struct {
-	ShopName          string            `json:"ShopName"`
-	OwnerName         string            `json:"OwnerName"`
+	CustomerInfo      Customer          `json:"CustomerInfo"`
 	Date              string            `json:"Date"`
 	InvoiceNo         string            `json:"InvoiceNo"`
 	ProductsInfo      []SaleProductInfo `json:"ProductsInfo"`

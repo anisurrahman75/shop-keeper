@@ -102,7 +102,7 @@
             <div class="content">
                <div class="page-header">
                   <div class="page-title">
-                     <h4>Customer List</h4>
+                     <h4>Customer List / Customer Details</h4>
                      <h6>Manage your Customers</h6>
                   </div>
                </div>
@@ -110,7 +110,6 @@
                   <div class="card-body">
                      <div class="row">
 
-                        
                         <div class="row">
                            <div class="col-lg-7 ">
                               <div class="total-order w-100 max-widthauto m-auto mb-4">
@@ -174,10 +173,9 @@
                                                    <span class="checkmarks"></span>
                                                    </label>
                                                 </th>
-                                                <th>Shop Name</th>
-                                                <th>Owner Name</th>
-                                                <th>Phone Number</th>
-                                                <th>Due $</th>
+                                                <th>Date</th>
+                                                <th>Invoice No</th>
+                                                <th>Grand Total Bill</th>
                                                 <th>Action</th>
                                              </tr>
                                           </thead>
@@ -196,6 +194,8 @@
                                                 <td>{{.Brand.Name}}</td>
                                                 <td>{{.Unit.Name}}</td>
                                                 <td>{{.Qty}}</td>
+
+
                                                 <td>
                                                    <a class="me-3" href="/customer/details">
                                                    <img src="../assets/img/icons/eye.svg" alt="img">

@@ -29,13 +29,13 @@
                                     <td class="border-r pr-4">
                                         <div>
                                             <p class="text-neutral-600 font-bold text-right">Date</p>
-                                            <p class="whitespace-nowrap font-bold text-main text-right">{{.InvoiceData.Date}}</p>
+                                            <p class="whitespace-nowrap font-bold text-main text-right">{{.Date}}</p>
                                         </div>
                                     </td>
                                     <td class="pl-4">
                                         <div>
-                                            <p class="text-neutral-600 font-bold text-right">Invoice  <span class="whitespace-nowrap font-bold text-main text-right"># {{.InvoiceData.InvoiceNo}}</span></p>
-<!--                                            <p class="whitespace-nowrap font-bold text-main text-right">{{.InvoiceData.InvoiceNo}}</p>-->
+                                            <p class="text-neutral-600 font-bold text-right">Invoice  <span class="whitespace-nowrap font-bold text-main text-right"># {{.InvoiceNo}}</span></p>
+<!--                                            <p class="whitespace-nowrap font-bold text-main text-right">{{.InvoiceNo}}</p>-->
                                         </div>
                                     </td>
                                 </tr>
@@ -87,7 +87,7 @@
                 </tr>
                 </thead>
                 <tbody>
-                {{range $index, $product := .InvoiceData.ProductsInfo}}
+                {{range $index, $product := .ProductsInfo}}
                 <tr>
                     <td class="border-b py-3 pl-3">{{$product.Index}}</td>
                     <td class="border-b py-3 pl-2">{{$product.Name}}</td>
@@ -115,23 +115,23 @@
                                                 <div class="whitespace-nowrap font-bold text-main"></div>
                                             </td>
                                             <td class="border-b p-3 text-right">
-                                                <div class="whitespace-nowrap font-bold text-main">Tk {{.InvoiceData.NetTotal}}</div>
+                                                <div class="whitespace-nowrap font-bold text-main">Tk {{.NetTotal}}</div>
                                             </td>
                                         </tr>
                                         <tr>
                                             <td class="border-b p-3">
-                                                <div class="whitespace-nowrap font-bold">Discount: <span style="color: #5c6ac4;" class="text-center">{{.InvoiceData.DiscountInPercent}} %</span></div>
+                                                <div class="whitespace-nowrap font-bold">Discount: <span style="color: #5c6ac4;" class="text-center">{{.DiscountInPercent}} %</span></div>
                                             </td>
 
 
                                             <!--                                            <td class="border-b p-3 text-right">-->
-<!--                                                <div class="whitespace-nowrap font-bold text-main">{{.InvoiceData.DiscountInPercent}} %</div>-->
+<!--                                                <div class="whitespace-nowrap font-bold text-main">{{.DiscountInPercent}} %</div>-->
 <!--                                            </td>-->
                                             <td class="border-b p-3 text-right">
                                                 <div class="whitespace-nowrap font-bold text-main"></div>
                                             </td>
                                             <td class="border-b p-3 text-right">
-                                                <div class="whitespace-nowrap font-bold text-main">Tk {{.InvoiceData.SaveInDiscount}}</div>
+                                                <div class="whitespace-nowrap font-bold text-main">Tk {{.SaveInDiscount}}</div>
                                             </td>
                                         </tr>
 
@@ -143,7 +143,7 @@
                                                 <div class="whitespace-nowrap font-bold text-main"></div>
                                             </td>
                                             <td class="border-spacing-0 border-b p-3 text-right ">
-                                                <div class="whitespace-nowrap font-bold text-main text-white">Tk {{.InvoiceData.GrandTotal}}</div>
+                                                <div class="whitespace-nowrap font-bold text-main text-white">Tk {{.GrandTotal}}</div>
                                             </td>
                                         </tr>
 
@@ -161,12 +161,12 @@
 
 <!--                                            <td class="p-3 text-right">-->
 <!--&lt;!&ndash;                                                <div class="whitespace-nowrap font-bold">  </div>&ndash;&gt;-->
-<!--                                                <div class="whitespace-nowrap font-bold text-main"> {{.InvoiceData.DiscountInPercent}}%</div>-->
+<!--                                                <div class="whitespace-nowrap font-bold text-main"> {{.DiscountInPercent}}%</div>-->
 <!--                                            </td>-->
 
 <!--                                            <td class="p-3 text-right">-->
 <!--&lt;!&ndash;                                                <div class="whitespace-nowrap font-bold">  </div>&ndash;&gt;-->
-<!--                                                <div class="whitespace-nowrap font-bold text-main"> Tk {{.InvoiceData.SaveInDiscount}}</div>-->
+<!--                                                <div class="whitespace-nowrap font-bold text-main"> Tk {{.SaveInDiscount}}</div>-->
 <!--                                            </td>-->
 <!--                                        </tr>-->
 <!--                                        <tr>-->
@@ -174,7 +174,7 @@
 <!--                                                <div class="whitespace-nowrap font-bold text-white">Total:</div>-->
 <!--                                            </td>-->
 <!--                                            <td class="bg-main p-3 text-right">-->
-<!--                                                <div class="whitespace-nowrap font-bold text-white">Tk {{.InvoiceData.GrandTotal}}</div>-->
+<!--                                                <div class="whitespace-nowrap font-bold text-white">Tk {{.GrandTotal}}</div>-->
 <!--                                            </td>-->
 <!--                                        </tr>-->
                                         </tbody>
