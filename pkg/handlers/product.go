@@ -63,6 +63,20 @@ func addIntoProductList(formData map[string]string) bool {
 	return true
 }
 
+func GetCustomerList(w http.ResponseWriter, r *http.Request) {
+	fmt.Println(r.Method)
+	if r.Method == http.MethodGet {
+		w.WriteHeader(http.StatusOK)
+		w.Header().Set("Content-Type", "application/json")
+		w.WriteHeader(http.StatusOK)
+		err := json.NewEncoder(w).Encode(data.CustomerList)
+		if err != nil {
+			fmt.Println(err)
+			panic(err)
+		}
+	}
+}
+
 func ProductList(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.Method)
 	temp, err := template.ParseFiles("./api/templates/views/productlist.html")

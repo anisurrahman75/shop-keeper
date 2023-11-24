@@ -9,20 +9,47 @@ let customerInfo ={
     TotalDue : '',
 }
 
-document.getElementById("showCustomerInfo").addEventListener("click", function () {
-    const shopName = document.getElementById("shopName").value;
-    fetch(`/customer/${shopName}`)
-        .then(response => response.json())
-        .then(data => {
-            console.log("Response from server:", data);
-            customerInfo = data;
+let customerList = Array.of(customerInfo)
 
-            document.getElementById("ownerName").innerText = customerInfo.OwnerName;
-            document.getElementById("address").innerText = customerInfo.Address;
-            document.getElementById("phoneNumber").innerText = customerInfo.PhoneNumber;
-            document.getElementById("totalDue").innerText = customerInfo.TotalDue;
+document.addEventListener('DOMContentLoaded', function () {
+        // Send the data to the Go backend using a POST request
+        fetch('/get/customer/list', {
+            method: 'GET',
+            headers: {
+                'Content-Type': 'application/json'
+            }
         })
-        .catch(error => console.error("Error:", error));
+            .then(response => response.json())
+            .then(data => {
+                customerList=data
+                customerList.sort((a, b) => a.ShopName.localeCompare(b.ShopName));
+                console.log("Response from server:", customerList);
+                const selectElement = document.getElementById("shopName");
+                // Loop through the array and create options dynamically
+                for (let i = 0; i < customerList.length; i++) {
+                    const option = document.createElement("option");
+                    option.text = customerList[i].ShopName;
+                    // You can also set the value attribute if needed
+                    // option.value = shopNames[i];
+                    selectElement.add(option);
+                }
+
+            })
+            .catch(error => {
+                console.error("Error:", error);
+            });
+});
+
+document.getElementById("showCustomerInfo").addEventListener("click", function () {
+    const shopName = document.getElementById("shopName");
+    const selectedIndex = shopName.selectedIndex;
+    if (selectedIndex!==0){
+                customerInfo=customerList[selectedIndex-1]
+                document.getElementById("ownerName").innerText = customerInfo.OwnerName;
+                document.getElementById("address").innerText = customerInfo.Address;
+                document.getElementById("phoneNumber").innerText = customerInfo.PhoneNumber;
+                document.getElementById("totalDue").innerText = customerInfo.TotalDue;
+    }
 });
 
 document.getElementById("submit-product").addEventListener("click", function () {
