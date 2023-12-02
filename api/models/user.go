@@ -5,7 +5,3 @@ type User struct {
 	Email    string `json:"user_name"`
 	Password string `json:"password"`
 }
-
-type Brand struct {
-	Name string `json:"name"`
-}
