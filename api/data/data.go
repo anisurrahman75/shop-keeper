@@ -184,7 +184,7 @@ var SalesList = []models.InvoiceData{
 	{
 		CustomerInfo: CustomerList[0],
 		Date:         "02-13-2023",
-		InvoiceNo:    "12",
+		InvoiceNo:    12,
 		ProductsInfo: []models.SaleProductInfo{
 			{
 				Index:     1,
@@ -209,7 +209,7 @@ var SalesList = []models.InvoiceData{
 	{
 		CustomerInfo: CustomerList[0],
 		Date:         "02-13-2023",
-		InvoiceNo:    "13",
+		InvoiceNo:    13,
 		ProductsInfo: []models.SaleProductInfo{
 			{
 				Index:     1,
@@ -234,7 +234,7 @@ var SalesList = []models.InvoiceData{
 	{
 		CustomerInfo: CustomerList[0],
 		Date:         "02-13-2023",
-		InvoiceNo:    "14",
+		InvoiceNo:    14,
 		ProductsInfo: []models.SaleProductInfo{
 			{
 				Index:     1,
@@ -259,7 +259,7 @@ var SalesList = []models.InvoiceData{
 	{
 		CustomerInfo: CustomerList[0],
 		Date:         "02-13-2023",
-		InvoiceNo:    "15",
+		InvoiceNo:    15,
 		ProductsInfo: []models.SaleProductInfo{
 			{
 				Index:     1,

@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-func Dashboard(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) Dashboard(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
 
 	temp, err := template.ParseFiles("./templates/views/dashboard.html")
@@ -22,7 +22,7 @@ func Dashboard(w http.ResponseWriter, r *http.Request) {
 	}
 }
 
-func InvoicePrint(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) InvoicePrint(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Method: ", r.Method)
 	tem, err := template.ParseFiles("./templates/views/invoice.html")
 	if err != nil {

@@ -23,9 +23,9 @@ func validateField(value string, fieldName string) ValidationResponse {
 	}
 }
 
-func SignUp(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) SignUp(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("method:", r.Method) //get request method
-	temp, err := template.ParseFiles("./api/templates/views/signup.html")
+	temp, err := template.ParseFiles("./templates/views/signup.html")
 	if err != nil {
 		panic(err)
 	}
@@ -72,8 +72,8 @@ func isEmailAndPasswordValid(email string, password string) bool {
 	return false
 }
 
-func SignIn(w http.ResponseWriter, r *http.Request) {
-	temp, err := template.ParseFiles("./api/templates/views/signin.html")
+func (h *Handler) SignIn(w http.ResponseWriter, r *http.Request) {
+	temp, err := template.ParseFiles("./templates/views/signin.html")
 	if err != nil {
 		panic(err)
 	}
@@ -124,7 +124,7 @@ func getMatchedUserWithEmailAndPass(email string, pass string) *models.User {
 	return nil
 }
 
-func SignOut(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) SignOut(w http.ResponseWriter, r *http.Request) {
 	auth.GetUserFromXCookieJWT(w, r)
 	http.Redirect(w, r, "/signin", http.StatusSeeOther)
 }

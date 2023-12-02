@@ -80,14 +80,14 @@
 
 
                     <li>
-                        <a href="dashboard"><img src="../assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
+                        <a href="../../dashboard"><img src="../assets/img/icons/dashboard.svg" alt="img"><span> Dashboard</span> </a>
                     </li>
 
 
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
                         <ul>
-                            <li><a href="productlist" class="active">Product List</a></li>
+                            <li><a href="productlist" >Product List</a></li>
                             <li><a href="productadd" >Add Product</a></li>
                         </ul>
                     </li>
@@ -95,12 +95,11 @@
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/users1.svg" alt="img"><span> People</span> <span class="menu-arrow"></span></a>
                         <ul>
-                            <li><a href="/customer/list" class="active">Customer List</a></li>
-                            <li><a href="/customer/add" >Add Customer </a></li>
-                
+                            <li><a href="customerlist.html" class="active">Customer List</a></li>
+                            <li><a href="addcustomer.html" >Add Customer </a></li>
+
                         </ul>
                     </li>
-
 
 
                     <li class="submenu">
@@ -129,10 +128,10 @@
             <div class="page-header">
                 <div class="page-title">
                     <h4>Customer List</h4>
-                    <h6>Manage your Customers</h6>
+                    <h6>Manage your customers</h6>
                 </div>
                 <div class="page-btn">
-                    <a href="/productadd" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-1">Add New Customer</a>
+                    <a href="/productadd" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-1">Add New Product</a>
                 </div>
             </div>
             <div class="card">
@@ -142,6 +141,7 @@
                             <div class="search-path">
                                 <a class="btn btn-filter" id="filter_search">
                                     <img src="../assets/img/icons/filter.svg" alt="img">
+                                    <span><img src="../assets/img/icons/closes.svg" alt="img"></span>
                                 </a>
                             </div>
                             <div class="search-input">
@@ -163,9 +163,12 @@
                         </div>
                     </div>
 
-                    
+
+
+
+
                     <div class="table-responsive">
-                        <table class="table  datanew">
+                        <table class="table  datanew" id="customersTable">
                             <thead>
                             <tr>
                                 <th>
@@ -174,16 +177,16 @@
                                         <span class="checkmarks"></span>
                                     </label>
                                 </th>
+                                <th>ID</th>
                                 <th>Shop Name</th>
                                 <th>Owner Name</th>
-                                <th>Phone Number</th>
-                                <th>Due $</th>
+                                <th>Total Due</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
                             <tbody>
 
-                            {{range .ProductList}}
+                            {{range .}}
                             <tr>
                                 <td>
                                     <label class="checkboxs">
@@ -191,17 +194,13 @@
                                         <span class="checkmarks"></span>
                                     </label>
                                 </td>
-
-                                <td id="productimgname">
-                                    <a href="#">{{.Name}}</a>
-                                </td>
-
-                                <td>{{.Brand.Name}}</td>
-                                <td>{{.Unit.Name}}</td>
-                                <td>{{.Qty}}</td>
+                                <td>{{.ID}}</td>
+                                <td>{{.ShopName}}</td>
+                                <td>{{.OwnerName}}</td>
+                                <td>{{.TotalDue}}</td>
                                 <td>
-                                    <a class="me-3" href="/customer/details">
-                                        <img src="../assets/img/icons/eye.svg" alt="img">
+                                    <a class="me-3">
+                                        <img src="../assets/img/icons/eye.svg" href="javascript:void(0);" alt="img">
                                     </a>
                                     <a class="confirm-text" href="javascript:void(0);">
                                         <img src="../assets/img/icons/delete.svg" alt="img">
@@ -209,6 +208,8 @@
                                 </td>
                             </tr>
                             {{end}}
+
+
 
                             </tbody>
                         </table>
@@ -228,6 +229,7 @@
 <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
 <script src="../assets/js/script.js"></script>
+<script src="../views-js/customerlist.js"></script>
 </body>
 
 </html>

@@ -9,7 +9,7 @@ import (
 	"net/http"
 )
 
-func NewSales(w http.ResponseWriter, r *http.Request) {
+func (h *Handler) NewSales(w http.ResponseWriter, r *http.Request) {
 	fmt.Println(r.Method)
 	temp, err := template.ParseFiles("./templates/views/newsales.html")
 	if err != nil {
@@ -17,10 +17,10 @@ func NewSales(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == http.MethodGet {
 		response := struct {
-			InvoiceNo    string
+			InvoiceNo    int
 			CustomerList []models.Customer
 			ProductList  []models.Product
-		}{"12", data.CustomerList, data.ProductList}
+		}{12, data.CustomerList, data.ProductList}
 
 		err = temp.Execute(w, response)
 		if err != nil {

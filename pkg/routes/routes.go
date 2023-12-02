@@ -1,55 +1,65 @@
 package routes
 
 import (
+	"cloud.google.com/go/firestore"
+	"github.com/anisurrahman75/go-stock-management/config"
 	"github.com/anisurrahman75/go-stock-management/pkg/handlers"
 	"github.com/go-chi/chi/v5"
+	"log"
 	"net/http"
 )
 
 type Server struct {
 	Router *chi.Mux
+	Client *firestore.Client
 }
 
 func CreateNewServer() *Server {
-	s := &Server{}
-	s.Router = chi.NewRouter()
+	s := &Server{
+		Router: chi.NewRouter(),
+	}
+	var err error
+	s.Client, err = config.DBConnect()
+	if err != nil {
+		log.Print(err)
+	}
 	return s
 }
 
 func (s *Server) MountHandlers() http.Handler {
+	handler := handlers.New(s.Client)
 	s.Router.Group(func(r chi.Router) {
-		r.HandleFunc("/signup", handlers.SignUp)
-		r.HandleFunc("/signin", handlers.SignIn)
+		r.HandleFunc("/signup", handler.SignUp)
+		r.HandleFunc("/signin", handler.SignIn)
 	})
 	//s.Router.Group(func(r chi.Router) {
 	s.Router.Group(func(r chi.Router) {
 		//r.Use(auth.Verify)
-		r.HandleFunc("/dashboard", handlers.Dashboard)
-		r.HandleFunc("/signout", handlers.SignOut)
+		r.HandleFunc("/dashboard", handler.Dashboard)
+		r.HandleFunc("/signout", handler.SignOut)
 
 		r.Route("/get", func(r chi.Router) {
-			r.HandleFunc("/customer/list", handlers.GetCustomerList)
-
+			r.HandleFunc("/customer/list", handler.GetCustomerList)
+			r.HandleFunc("/customer/{id}", handler.GetCustomer)
 		})
 
 		r.Route("/product", func(r chi.Router) {
-			r.HandleFunc("/add", handlers.ProductAdd)
-			r.HandleFunc("/list", handlers.ProductList)
+			r.HandleFunc("/add", handler.ProductAdd)
+			r.HandleFunc("/list", handler.ProductList)
 
 		})
 
 		r.Route("/customer", func(r chi.Router) {
-			r.HandleFunc("/add", handlers.AddCustomer)
-			r.HandleFunc("/list", handlers.ListCustomer)
-			r.HandleFunc("/{shopName}", handlers.GetCustomer)
-
+			r.HandleFunc("/add", handler.AddCustomer)
+			r.HandleFunc("/list", handler.ListCustomer)
 		})
+
+		r.HandleFunc("/customer/details/{id}", handler.DetailsCustomer)
 
 		r.Route("/sales", func(r chi.Router) {
-			r.HandleFunc("/new", handlers.NewSales)
-			r.HandleFunc("/invoice", handlers.InvoicePrint)
+			r.HandleFunc("/new", handler.NewSales)
+			r.HandleFunc("/invoice", handler.InvoicePrint)
 		})
-
 	})
 	return s.Router
 }
