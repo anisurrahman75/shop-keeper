@@ -46,6 +46,7 @@ func (s *Server) MountHandlers() http.Handler {
 		r.Route("/product", func(r chi.Router) {
 			r.HandleFunc("/add", handler.ProductAdd)
 			r.HandleFunc("/list", handler.ProductList)
+			r.HandleFunc("/brand-unit", handler.BrandUnit)
 
 		})
 

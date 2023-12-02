@@ -5,28 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d46ad83d-1c9b-4edf-845b-6a175c9700a2" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/Stock-Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Stock-Management.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/data/data.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/data/data.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/customer.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/customer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/api/models/invoicelist.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/invoicelist.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/api/models/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/config.go" beforeDir="false" afterPath="$PROJECT_DIR$/config/config.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/go.sum" beforeDir="false" afterPath="$PROJECT_DIR$/go.sum" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handlers/customer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/customer.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handlers/general.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/general.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handlers/handler.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/handler.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/handlers/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/product.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handlers/sales.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/sales.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pkg/handlers/user.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/user.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/routes/routes.go" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/customerdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/customerdetails.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/customerlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/customerlist.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views-js/customeradd.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/customeradd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views-js/product-add.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/product-add.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/dashboard.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/productadd.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/productadd.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/productlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/productlist.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vendor/modules.txt" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/modules.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,9 +25,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="JavaScript File" />
-        <option value="HTML File" />
         <option value="Go File" />
+        <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -64,26 +52,27 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;DefaultGoTemplateProperty&quot;: &quot;Go File&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.migrated.go.modules.settings&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.automatic.dependencies.download&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.go.modules.go.list.on.any.changes.was.set&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;refactor-files&quot;,
-    &quot;go.import.settings.migrated&quot;: &quot;true&quot;,
-    &quot;go.sdk.automatically.set&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/anisur/go/src/github.com/anisurrahman75/bookserver-api-mysql&quot;,
-    &quot;list.type.of.created.stylesheet&quot;: &quot;CSS&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.automatic.dependencies.download": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "databse-add",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/home/anisur/go/src/github.com/anisurrahman75/go-stock-management",
+    "list.type.of.created.stylesheet": "CSS",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />

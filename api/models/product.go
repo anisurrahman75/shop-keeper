@@ -48,6 +48,31 @@ func (p Product) Delete(ctx context.Context, client *firestore.Client) error {
 	return err
 }
 
+func (p Product) List(ctx context.Context, client *firestore.Client) ([]Product, error) {
+	var list []Product
+	iter := client.Collection("ProductList").Documents(ctx)
+
+	for {
+		doc, err := iter.Next()
+		if errors.Is(err, iterator.Done) {
+			break
+		}
+		if err != nil {
+			return nil, err
+		}
+		dbByte, err := json.Marshal(doc.Data())
+		if err != nil {
+			return nil, err
+		}
+		data := Product{}
+		if err := json.Unmarshal(dbByte, &data); err != nil {
+			return nil, err
+		}
+		list = append(list, data)
+	}
+	return list, nil
+}
+
 func (u Unit) Add(ctx context.Context, client *firestore.Client) error {
 	dataMap := structs.Map(u)
 	log.Printf("Adding Unit data: %+v", dataMap)

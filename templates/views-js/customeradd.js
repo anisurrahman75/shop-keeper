@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     })
 
-    //
+
     // $(document).ready(function() {
     //     document.getElementById("click_modal_close").addEventListener("click", function() {
     //         const modal = document.getElementById("successModal");
