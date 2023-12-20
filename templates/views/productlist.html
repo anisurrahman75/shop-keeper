@@ -86,8 +86,10 @@
                     <li class="submenu">
                         <a href="javascript:void(0);"><img src="../assets/img/icons/product.svg" alt="img"><span> Product</span> <span class="menu-arrow"></span></a>
                         <ul>
-                            <li><a href="productlist" class="active">Product List</a></li>
-                            <li><a href="productadd" >Add Product</a></li>
+                            <li><a href="/product/add" >Add Product</a></li>
+                            <li><a href="/product/list" class="active">Product List</a></li>
+                            <li><a href="/product/brand-unit" >Brand/Unit List</a>   </li>
+
                         </ul>
                     </li>
 
@@ -126,8 +128,11 @@
         <div class="content">
             <div class="page-header">
                 <div class="page-title">
-                    <h4>Product List</h4>
-                    <h6>Manage your products</h6>
+                    <h4>Product</h4>
+                    <ul class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="#">Product</a></li>
+                        <li class="breadcrumb-item active">Product List</li>
+                    </ul>
                 </div>
                 <div class="page-btn">
                     <a href="/productadd" class="btn btn-added"><img src="../assets/img/icons/plus.svg" alt="img" class="me-1">Add New Product</a>
@@ -194,21 +199,17 @@
                                     </label>
                                 </td>
 
-                                <td id="productimgname">
+                                <td id="productName">
                                     <a href="#">{{.Name}}</a>
                                 </td>
 
-                                <td>{{.Brand.Name}}</td>
-                                <td>{{.Unit.Name}}</td>
+                                <td>{{.Brand}}</td>
+                                <td>{{.Unit}}</td>
                                 <td>{{.Qty}}</td>
                                 <td>
-                                    <a class="me-3" href="editproduct.html">
-                                        <img src="../assets/img/icons/edit.svg" alt="img">
-                                    </a>
+                                    <a href="javascript:void(0);" class="edit-product"><img src="../assets/img/icons/edit.svg" alt="svg"></a>
 
-                                    <a class="confirm-text" href="javascript:void(0);">
-                                        <img src="../assets/img/icons/delete.svg" alt="img">
-                                    </a>
+                                    <a href="javascript:void(0);" class="delete-product"><img src="../assets/img/icons/delete.svg" alt="svg"></a>
                                 </td>
                             </tr>
                             {{end}}
@@ -231,6 +232,8 @@
 <script src="../assets/plugins/sweetalert/sweetalert2.all.min.js"></script>
 <script src="../assets/plugins/sweetalert/sweetalerts.min.js"></script>
 <script src="../assets/js/script.js"></script>
+<script src="../views-js/product-list.js"></script>
+
 </body>
 
 </html>

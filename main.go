@@ -16,7 +16,7 @@ func main() {
 		panic(err)
 	}
 	server.LoadAllStaticFiles()
-	if err := http.ListenAndServe(":8080", server.MountHandlers()); err != nil {
+	if err := http.ListenAndServe(":8000", server.MountHandlers()); err != nil {
 		log.Printf("An error has occurred: %s", err)
 		panic(err)
 	}

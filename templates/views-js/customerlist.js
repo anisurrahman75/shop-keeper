@@ -1,14 +1,16 @@
-document.getElementById("customersTable").addEventListener("click", function (event) {
-    const target = event.target;
+document.addEventListener('DOMContentLoaded', function () {
+    const viewCustomerIcons = document.querySelectorAll('.view-customer');
+    viewCustomerIcons.forEach(icon => {
+        icon.addEventListener('click', function (event) {
+            event.preventDefault(); // Prevent the default behavior of the anchor tag
+            handleView(event);
+        });
+    });
+    function handleView(event) {
+        const row = event.target.closest('tr');
+        const shop = row.querySelector('#Shop').textContent.trim();
+        const owner = row.querySelector('#Owner').textContent.trim();
 
-    if (target.tagName === "IMG" && target.getAttribute("src") === "../assets/img/icons/eye.svg") {
-        const rowIndex = target.closest("tr").rowIndex;
-        const table = document.getElementById("customersTable");
-        const cells = table.rows[rowIndex].cells;
-
-        // Extracting data from cells
-        const id = cells[1].textContent;
-        window.location.href = `/customer/details/${id}`; // Replace with your desired URL
-
+        window.location.href = `/customer/details/${shop}/${owner}`; // Replace with your desired URL
     }
 });

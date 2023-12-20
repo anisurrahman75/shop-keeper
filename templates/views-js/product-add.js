@@ -1,15 +1,20 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("submit").addEventListener("click", function () {
+        const brandName= document.getElementById("brand").value
+        const unitName= document.getElementById("unit").value
+
         const formData = {
-            Brand : document.getElementById("brand").value,
-            ProductName : document.getElementById("product_name").value,
-            ProductGrade: document.getElementById("product_grade").value,
-            Unit: document.getElementById("unit").value,
+            Brand :  brandName,
+            Name : document.getElementById("productName").value,
+            Grade: document.getElementById("productGrade").value,
+            Unit: unitName,
             Description: document.getElementById("description").value,
         };
 
+        console.log(formData)
+
         // Send the data to the Go backend using a POST request
-        fetch('/productadd', {
+        fetch('/product/add', {
             method: 'POST',
             body: JSON.stringify(formData),
             headers: {
@@ -19,9 +24,25 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 console.log("Response from server:", data);
-                if (data.is_poduct_add_successfully){
-                    console.log("Show Modal")
-                    $('#successModal').modal('show');
+
+                if (data.AddSuccess) {
+                    // Brand added successfully, show success alert
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Product Added Successfully',
+                        text: 'The Product has been added to the database.',
+                    }).then(() => {
+                        // Reset specific form fields
+                        // resetFormFields();
+                        // Redirect to the specified URL
+                        window.location.href = '/product/add';
+                    });
+                } else {
+                    Swal.fire({
+                        icon: 'error',
+                        title: 'Product Not Added',
+                        text: 'There was an error adding the product. Please try again.',
+                    });
                 }
             })
             .catch(error => {
@@ -29,14 +50,16 @@ document.addEventListener('DOMContentLoaded', function () {
             });
     })
 
+    function resetFormFields() {
+        // Reset specific form fields
+        const unitSelect = document.getElementById("unit");
+        unitSelect.selectedIndex = 0;
 
-    $(document).ready(function() {
-        document.getElementById("click_modal_close").addEventListener("click", function() {
-            const modal = document.getElementById("successModal");
-            $(modal).modal("hide");
-            window.location.href = "/productadd";
-
-        });
-    });
-
+        document.getElementById("brand").selectedIndex = 0;
+        // document.getElementById("brand").selectedIndex = 1;
+        // document.getElementById("unit").selectedIndex = 1;
+        document.getElementById("productName").value = '';
+        document.getElementById("productGrade").value = '';
+        document.getElementById("description").value = '';
+    }
 });

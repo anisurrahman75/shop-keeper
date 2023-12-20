@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="../assets/css/invoice-style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="../../../assets/css/invoice-style.css" type="text/css" media="all" />
 </head>
 
 <body>
@@ -17,7 +18,7 @@
                 <tr>
                     <td class="w-full align-top">
                         <div>
-                            <img src="https://menkoff.com/assets/brand-sample.png" class="h-12" />
+                            <img src="../../../assets/img/Untitled%20(6).png" class="h-12" />
                         </div>
                     </td>
 
@@ -61,10 +62,10 @@
                             <p>Gazipur, Dhaka, Bangladesh</p>
                         </div>
                     </td>
-                    <td class="w-1/2 align-top text-right">
+                    <td class="w-1/2 align-top text-right ti-align-left">
                         <div class="text-sm text-neutral-600">
-                            <p class="font-bold">{{.CustomerInfo.ShopName}}</p>
-                            <p>Owner: {{.CustomerInfo.OwnerName}}</p>
+                            <p class="font-bold">{{.CustomerInfo.Shop}}</p>
+                            <p>Owner: {{.CustomerInfo.Owner}}</p>
                             <p>Number: {{.CustomerInfo.PhoneNumber}}</p>
                             <p>Address: {{.CustomerInfo.Address}}</p>
                         </div>
