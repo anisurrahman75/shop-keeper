@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 let formData={}
                 const row = event.target.closest('tr');
                 // Get the product name from the second column (id="productName")
-                const productName = row.querySelector('#productName a').textContent.trim();
+                const productName = row.querySelector('#productName').textContent.trim();
 
                 formData = {
                     Type: "product",

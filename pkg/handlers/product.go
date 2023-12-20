@@ -80,6 +80,7 @@ func (h *Handler) ProductList(w http.ResponseWriter, r *http.Request) {
 	}
 	if r.Method == http.MethodGet {
 		productList, err := models.Product{}.List(context.Background(), h.Client)
+		fmt.Println("------", productList)
 		if err != nil {
 			log.Printf("Error getting Product list: %v", err)
 			http.Error(w, "Internal Server Error", http.StatusInternalServerError)

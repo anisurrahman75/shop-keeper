@@ -1,12 +1,13 @@
 let productsSet = new Set();
 let productsList = [];
-let totalBill = 0, discountByPercent =  0,afterDiscountTotal = 0, disCountSave = 0;
+let totalBill = 0, discountByPercent =  0, afterDiscountTotal = 0, disCountSave = 0;
 let customerInfo ={
-    ShopName: '',
-    OwnerName: '',
-    Address: '',
-    PhoneNumber: '',
-    TotalDue : '',
+    ShopNameOwner: '',
+    Shop          : '',
+    Owner         : '',
+    PhoneNumber   : '',
+    Address       : '',
+    TotalDue      : 0,
 }
 
 let customerList = Array.of(customerInfo)
@@ -22,13 +23,12 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 customerList=data
-                customerList.sort((a, b) => a.ShopName.localeCompare(b.ShopName));
                 console.log("Response from server:", customerList);
-                const selectElement = document.getElementById("shopName");
+                const selectElement = document.getElementById("ShopNameOwner");
                 // Loop through the array and create options dynamically
                 for (let i = 0; i < customerList.length; i++) {
                     const option = document.createElement("option");
-                    option.text = customerList[i].ShopName;
+                    option.text = customerList[i].ShopNameOwner;
                     // You can also set the value attribute if needed
                     // option.value = shopNames[i];
                     selectElement.add(option);
@@ -41,14 +41,14 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 document.getElementById("showCustomerInfo").addEventListener("click", function () {
-    const shopName = document.getElementById("shopName");
+    const shopName = document.getElementById("ShopNameOwner");
     const selectedIndex = shopName.selectedIndex;
     if (selectedIndex!==0){
                 customerInfo=customerList[selectedIndex-1]
-                document.getElementById("ownerName").innerText = customerInfo.OwnerName;
+                document.getElementById("ownerName").innerText = customerInfo.Owner;
                 document.getElementById("address").innerText = customerInfo.Address;
                 document.getElementById("phoneNumber").innerText = customerInfo.PhoneNumber;
-                document.getElementById("totalDue").innerText = customerInfo.TotalDue;
+                document.getElementById("totalDue").innerText ="Tk "+ customerInfo.TotalDue;
     }
 });
 
@@ -79,22 +79,22 @@ document.getElementById("printInvoice").addEventListener("click", function () {
     const invoiceData = {
         CustomerInfo: customerInfo,
         Date: document.getElementById("date").value,
-        InvoiceNo: document.getElementById("invoiceNo").value,
+        InvoiceNo: parseInt(document.getElementById("invoiceNo").value).toString(),
         ProductsInfo: productsList,
-        NetTotal: totalBill,
-        DiscountInPercent: discountByPercent,
-        SaveInDiscount: disCountSave,
-        GrandTotal: afterDiscountTotal
+        NetTotal:  totalBill.toFixed(2).toString(),
+        DiscountInPercent: discountByPercent.toString(),
+        SaveInDiscount: disCountSave.toFixed(2).toString(),
+        GrandTotal: afterDiscountTotal.toFixed(2).toString()
     };
 
-    console.log("Owner Name: ", invoiceData.NetTotal);
-    console.log("Owner Name: ", invoiceData.DiscountInPercent);
-    console.log("Owner Name: ", invoiceData.SaveInDiscount);
-    console.log("Owner Name: ", invoiceData.GrandTotal);
+    console.log("Net Total: ", invoiceData.NetTotal);
+    console.log("DisCount: ", invoiceData.DiscountInPercent);
+    console.log("Save Discount: ", invoiceData.SaveInDiscount);
+    console.log("Grand Total: ", invoiceData.GrandTotal);
 
     console.log('Fetching index.html...');
 
-    fetchInvoiceData(invoiceData)
+    fetchInvoiceData('/sales/invoice',invoiceData)
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');
@@ -110,8 +110,52 @@ document.getElementById("printInvoice").addEventListener("click", function () {
         .catch(error => console.error('Error fetching HTML file:', error));
 });
 
-function fetchInvoiceData(invoiceData) {
-    return fetch('/sales/invoice', {
+document.getElementById("addInvoice").addEventListener("click", function () {
+    const invoiceData = {
+        CustomerInfo: customerInfo,
+        Date: document.getElementById("date").value,
+        InvoiceNo: parseInt(document.getElementById("invoiceNo").value).toString(),
+        ProductsInfo: productsList,
+        NetTotal:  totalBill.toFixed(2).toString(),
+        DiscountInPercent: discountByPercent.toString(),
+        SaveInDiscount: disCountSave.toFixed(2).toString(),
+        GrandTotal: afterDiscountTotal.toFixed(2).toString()
+    };
+
+    console.log("Net Total: ", invoiceData.NetTotal);
+    console.log("DisCount: ", invoiceData.DiscountInPercent);
+    console.log("Save Discount: ", invoiceData.SaveInDiscount);
+    console.log("Grand Total: ", invoiceData.GrandTotal);
+
+    fetchInvoiceData('/sales/invoice-add',invoiceData)
+        .then(response => response.json())
+        .then(data => {
+            console.log("Response from server:", data);
+            if (data.AddSuccess) {
+                Swal.fire({
+                    icon: 'success',
+                    title: 'Customer Added Successfully',
+                    text: 'The Customer has been added to the database.',
+                }).then(() => {
+                    window.location.href = '/sales/new';
+                });
+            } else {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Customer Not Added',
+                    text: 'There was an error adding the customer. Please try again.',
+                });
+            }
+        }).catch(error => {
+        console.error("Error:", error);
+    });
+
+});
+
+
+
+function fetchInvoiceData(url,invoiceData) {
+    return fetch(url, {
         method: 'POST',
         body: JSON.stringify(invoiceData),
         headers: {

@@ -40,7 +40,6 @@ func (s *Server) MountHandlers() http.Handler {
 
 		r.Route("/get", func(r chi.Router) {
 			r.HandleFunc("/customer/list", handler.GetCustomerList)
-			r.HandleFunc("/customer/{id}", handler.GetCustomer)
 		})
 
 		r.Route("/product", func(r chi.Router) {
@@ -55,11 +54,12 @@ func (s *Server) MountHandlers() http.Handler {
 			r.HandleFunc("/list", handler.ListCustomer)
 		})
 
-		r.HandleFunc("/customer/details/{id}", handler.DetailsCustomer)
+		r.HandleFunc("/customer/details/{shop}/{owner}", handler.DetailsCustomer)
 
 		r.Route("/sales", func(r chi.Router) {
 			r.HandleFunc("/new", handler.NewSales)
 			r.HandleFunc("/invoice", handler.InvoicePrint)
+			r.HandleFunc("/invoice-add", handler.InvoiceAddIntoRecord)
 		})
 	})
 	return s.Router

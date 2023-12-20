@@ -5,15 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d46ad83d-1c9b-4edf-845b-6a175c9700a2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Stock-Management.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Stock-Management.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/api/models/invoice.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/data/data.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/data/data.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/customer.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/customer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/api/models/invoicelist.go" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/api/models/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/api/models/product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/db/database.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/db/database.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handlers/customer.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/customer.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handlers/general.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/general.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/handlers/product.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/product.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pkg/handlers/sales.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/handlers/sales.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pkg/routes/routes.go" beforeDir="false" afterPath="$PROJECT_DIR$/pkg/routes/routes.go" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views-js/customeradd.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/customeradd.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views-js/customerlist.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/customerlist.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views-js/new-sales.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/new-sales.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views-js/product-add.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/product-add.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views-js/product-list.js" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views-js/product-list.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/customeradd.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/customeradd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/customerdetails.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/customerdetails.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/customerlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/customerlist.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/dashboard.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/dashboard.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/views/productadd.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/productadd.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/invoice.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/invoice.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/views/newsales.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/newsales.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/templates/views/productlist.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/views/productlist.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -25,8 +40,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="CSS File" />
-        <option value="Go File" />
         <option value="HTML File" />
+        <option value="Go File" />
         <option value="JavaScript File" />
       </list>
     </option>
@@ -66,7 +81,7 @@
     "git-widget-placeholder": "databse-add",
     "go.import.settings.migrated": "true",
     "go.sdk.automatically.set": "true",
-    "last_opened_file_path": "/home/anisur/go/src/github.com/anisurrahman75/go-stock-management",
+    "last_opened_file_path": "/home/anisur/go/src/github.com/anisurrahman75/Stock-Management/templates/assets/img",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -75,6 +90,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/assets/img" />
       <recent name="$PROJECT_DIR$" />
     </key>
     <key name="MoveFile.RECENT_KEYS">

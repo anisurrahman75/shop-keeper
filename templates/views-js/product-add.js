@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', function () {
     document.getElementById("submit").addEventListener("click", function () {
-        const brand = {
-            Name: document.getElementById("brand").value
-        }
-        const unit = {
-            Name: document.getElementById("unit").value
-        }
+        const brandName= document.getElementById("brand").value
+        const unitName= document.getElementById("unit").value
+
         const formData = {
-            Brand :  brand,
+            Brand :  brandName,
             Name : document.getElementById("productName").value,
             Grade: document.getElementById("productGrade").value,
-            Unit: unit,
+            Unit: unitName,
             Description: document.getElementById("description").value,
         };
 
